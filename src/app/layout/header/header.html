@@ -1,1 +1,49 @@
-<p>header works!</p>
+<header class="bg-[#E3EAF1] w-full fixed top-0 z-50 shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 py-3">
+        
+        <!-- Burger button -->
+        <button class="md:hidden" (click)="menuOpen.set(!menuOpen())">
+            <svg class="w-6 h-6 text-[#9FB0CE]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Nav links (desktop) -->
+        <nav class="hidden md:flex space-x-6 text-sm text-[#9FB0CE] font-medium ms-auto pe-8">
+            <a href="#about" class="hover:text-blue-800">#about me</a>
+            <a href="#services" class="hover:text-blue-800">#services</a>
+            <a href="#experience" class="hover:text-blue-800">#experience</a>
+            <a href="#projects" class="hover:text-blue-800">#projects</a>
+        </nav>
+
+        <!-- Right controls -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#contact" class="bg-[#9FB0CE] text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-50">
+                CONTACT ME
+            </a>
+            <div class="border-s border-[#9FB0CE] h-8 flex items-center gap-4 px-4">
+                <a href="https://linkedin.com/in/adrian-pelaez" target="_blank">
+                    <img ngSrc="assets/images/linkedin.svg" width="24" height="24" alt="LinkedIn" />
+                </a>
+                <a href="https://github.com/adrianpt1991" target="_blank">
+                    <img ngSrc="assets/images/github.svg" width="24" height="24" alt="GitHub" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    @if (menuOpen()) {
+        <div class="md:hidden px-4 pb-4">
+            <nav class="flex flex-col space-y-2 text-sm text-[#9FB0CE] font-medium">
+                <a href="#about" (click)="menuOpen.set(false)">#about me</a>
+                <a href="#services" (click)="menuOpen.set(false)">#services</a>
+                <a href="#education" (click)="menuOpen.set(false)">#education/experience</a>
+                <a href="#projects" (click)="menuOpen.set(false)">#projects</a>
+                <a href="#contact" class="mt-2 bg-[#9FB0CE] text-white px-4 py-1 rounded-full text-sm font-semibold" (click)="menuOpen.set(false)">
+                    CONTACT ME
+                </a>
+            </nav>
+        </div>
+    }
+</header>
