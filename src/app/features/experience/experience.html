@@ -27,7 +27,7 @@
         </div>
 
         <!-- Tab Content Wrapper -->
-        <div class="rounded-xl bg-[#E0E9F3] min-h-[300px] p-16 shadow-lg">
+        <div class="rounded-xl bg-[#E0E9F3] min-h-[300px] p-12 pb-4 shadow-lg">
             @if (selectedTab() === 'education') {
                 <!-- Future: Education content here -->
                 <div class="relative border-l-2 border-[#9FB0CE] pl-6">
@@ -85,7 +85,55 @@
             }
              @if (selectedTab() === 'experience') {
                 <!-- Future: Experience content here -->
-                <p class="text-center text-gray-600">Experience tab content goes here...</p>
+                <div class="relative border-l-2 border-[#9FB0CE] pl-6">
+                    <!-- Experience 1 -->
+                    <div class="mb-6 flex items-start gap-4 relative">
+                        <!-- Marker -->
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-[#9FB0CE]"></span>
+
+                        <!-- Entry Content -->
+                        <div class="flex-1 text-left">
+                            <h3 class="font-bold text-[#000235] text-2xl">ZIWO/ Dubai, UAE</h3>
+                            <h6 class="font-semibold text-[#000235] text-xl mb-2">Frontend Engineer</h6>
+                            <ul class="list-disc pl-4 text-xl text-[#000235] font-normal">
+                                <li>Software development path (conception to delivery).</li>
+                                <li>Estimate & deliver frontend implementation aligned with user stories.</li>
+                                <li>Contribute actively to the stack maintenance (Angular, Angular Material, TailwindCSS).</li>
+                            </ul>
+                        </div>
+
+                        <!-- Date Pill -->
+                        <span class="bg-[#9FB0CE40] text-[#000235] text-xl px-4 py-2 w-56 rounded-full font-normal whitespace-nowrap">Dec 2023 – Present</span>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="mb-6 flex items-start gap-4 relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-[#9FB0CE]"></span>
+                        <div class="flex-1 text-left">
+                            <h3 class="font-bold text-[#000235] text-2xl">Datamensio / Barcelona, Spain</h3>
+                            <h6 class="font-semibold text-[#000235] text-xl mb-2">Senior Frontend Developer</h6>
+                            <ul class="list-disc pl-4 text-xl text-[#000235] font-normal">
+                                <li>Estimate & deliver frontend implementation aligned with user stories.</li>
+                                <li>Responsible for front-end development in Angular 14, Angular Material and TailwindCSS 3.</li>
+                                <li>UI/UX Integration.</li>
+                            </ul>
+                        </div>
+                        <span class="bg-[#9FB0CE40] text-[#000235] text-xl px-4 py-2 w-56 rounded-full font-normal whitespace-nowrap">Jan 2022 – Dec 2023</span>
+                    </div>
+                    <!-- Experience 3 -->
+                    <div class="mb-6 flex items-start gap-4 relative">
+                        <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-[#9FB0CE]"></span>
+                        <div class="flex-1 text-left">
+                            <h3 class="font-bold text-[#000235] text-2xl">NTSprint / Seattle, United States</h3>
+                            <h6 class="font-semibold text-[#000235] text-xl mb-2">Software Developer Engineer (SDE)</h6>
+                            <ul class="list-disc pl-4 text-xl text-[#000235] font-normal">
+                                <li>Fullstack developer.</li>
+                                <li>CI/CD integration using Azure DevOps and Google Cloud Engine.</li>
+                                <li>Responsible for the analysis of user requirements, design, modeling, and coding, providing complex solutions as full stack developer.</li>
+                            </ul>
+                        </div>
+                        <span class="bg-[#9FB0CE40] text-[#000235] text-xl px-4 py-2 w-56 rounded-full font-normal whitespace-nowrap">May 2020 – Jan 2022</span>
+                    </div>
+                </div>
              }
         </div>
     </div>
