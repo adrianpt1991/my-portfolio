@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-experience',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './experience.html',
   styleUrl: './experience.css'
 })
 export class Experience {
+  selectedTab = signal<'education' | 'experience'>('experience');
 
+  selectTab(tab: 'education' | 'experience') {
+    this.selectedTab.set(tab);
+  }
 }

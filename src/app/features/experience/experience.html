@@ -6,5 +6,36 @@
             <span class="w-full border-b border-white"></span>
             <span class="text-3xl font-medium min-w-40">/experience</span>
         </div>
+        <!-- Tab buttons -->
+        <div class="flex justify-center mt-10">
+            <div class="flex text-2xl -mb-8">
+                <button
+                    class="px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-s-full font-semibold transition-colors duration-300"
+                    [ngClass]="{ 'bg-[#000235] text-white': selectedTab() === 'experience', 'bg-[#9FB0CE] text-[#E3EAF1]': selectedTab() !== 'experience' }"
+                    (click)="selectTab('experience')"
+                >
+                    EXPERIENCE
+                </button>
+                <button
+                    class="px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-white rounded-e-full font-semibold transition-colors duration-300"
+                    [ngClass]="{ 'bg-[#000235] text-white': selectedTab() === 'education', 'bg-[#9FB0CE] text-[#E3EAF1]': selectedTab() !== 'education' }"
+                    (click)="selectTab('education')"
+                >
+                    EDUCATION
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Content Wrapper -->
+        <div class="rounded-xl bg-[#E0E9F3] min-h-[300px] px-6 py-12 shadow-lg">
+            @if (selectedTab() === 'education') {
+                <!-- Future: Education content here -->
+                <p class="text-center text-gray-600">Education tab content goes here...</p>
+            }
+             @if (selectedTab() === 'experience') {
+                <!-- Future: Experience content here -->
+                <p class="text-center text-gray-600">Experience tab content goes here...</p>
+             }
+        </div>
     </div>
 </section>
