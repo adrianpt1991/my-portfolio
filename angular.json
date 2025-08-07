@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/my-portfolio/",
               "budgets": [
                 {
                   "type": "initial",
@@ -48,8 +49,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "/my-portfolio/"
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
