@@ -10,14 +10,14 @@
         <div class="flex justify-center mt-10">
             <div class="flex text-2xl -mb-8">
                 <button
-                    class="px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-s-full font-semibold transition-colors duration-300"
+                    class="cursor-pointer px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-s-full font-semibold transition-colors duration-300"
                     [ngClass]="{ 'bg-[#000235] text-white': selectedTab() === 'experience', 'bg-[#9FB0CE] text-[#E3EAF1]': selectedTab() !== 'experience' }"
                     (click)="selectTab('experience')"
                 >
                     EXPERIENCE
                 </button>
                 <button
-                    class="px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-white rounded-e-full font-semibold transition-colors duration-300"
+                    class="cursor-pointer px-8 py-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-white rounded-e-full font-semibold transition-colors duration-300"
                     [ngClass]="{ 'bg-[#000235] text-white': selectedTab() === 'education', 'bg-[#9FB0CE] text-[#E3EAF1]': selectedTab() !== 'education' }"
                     (click)="selectTab('education')"
                 >

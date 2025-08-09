@@ -6,10 +6,11 @@ import { About } from './features/about/about';
 import { Footer } from './layout/footer/footer';
 import { Services } from './features/services/services';
 import { Experience } from './features/experience/experience';
+import { Projects } from './features/projects/projects';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Hero, About, Footer, Services, Experience],
+  imports: [RouterOutlet, Header, Hero, About, Footer, Services, Experience, Projects],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
