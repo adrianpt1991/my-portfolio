@@ -10,11 +10,11 @@
 
         <!-- Nav links (desktop) -->
         <nav class="hidden md:flex space-x-6 text-sm text-[#9FB0CE] font-medium ms-auto pe-8">
-            <a href="#home" class="hover:text-[#000235]">#home</a>
-            <a href="#about" class="hover:text-[#000235]">#about-me</a>
-            <a href="#services" class="hover:text-[#000235]">#services</a>
-            <a href="#experience" class="hover:text-[#000235]">#experience</a>
-            <a href="#projects" class="hover:text-[#000235]">#projects</a>
+            <a href="#home" class="hover:text-[#000235]" [ngClass]="{'text-[#000235]' : isActive('home')}">#home</a>
+            <a href="#about" class="hover:text-[#000235]" [ngClass]="{'text-[#000235]' : isActive('about')}">#about-me</a>
+            <a href="#services" class="hover:text-[#000235]" [ngClass]="{'text-[#000235]' : isActive('services')}">#services</a>
+            <a href="#experience" class="hover:text-[#000235]" [ngClass]="{'text-[#000235]' : isActive('experience')}">#experience</a>
+            <a href="#projects" class="hover:text-[#000235]" [ngClass]="{'text-[#000235]' : isActive('projects')}">#projects</a>
         </nav>
 
         <!-- Right controls -->
