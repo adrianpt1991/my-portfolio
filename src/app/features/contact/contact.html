@@ -1,0 +1,105 @@
+<section id="contact" class="relative h-dvh text-white px-6 py-16 flex flex-col items-center text-center bg-[#000235]">
+    <!-- Section content -->
+    <div class="w-full h-full container mx-auto">
+        <!-- Section title -->
+        <div class="flex items-center gap-4 text-white">
+            <span class="w-full border-b border-white"></span>
+            <span class="text-3xl font-medium min-w-48">/contact-me</span>
+        </div>
+        <!-- Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 w-full h-full p-8">
+            <div class="flex flex-col gap-8 items-start">
+                <!-- Text -->
+                <span class="text-2xl font-bold">Let’s work together</span>
+                <span class="text-xl font-normal text-left max-w-md">
+                    &lt;I’m interested in freelance opportunities. 
+                    However, if you have other request or question, 
+                    don’t hesitate to contact me./&gt;
+                </span>
+                <!-- Icons -->
+                <div class="flex items-center gap-4">
+                    <a href="https://linkedin.com/in/adrian-pelaez" target="_blank">
+                        <img ngSrc="assets/images/linkedin.svg" width="24" height="24" alt="LinkedIn" />
+                    </a>
+                    <a href="https://github.com/adrianpt1991" target="_blank">
+                        <img ngSrc="assets/images/github.svg" width="24" height="24" alt="GitHub" />
+                    </a>
+                </div>
+            </div>
+            <!-- Form -->
+            <form (submit)="submit()" novalidate class="flex flex-col items-start w-full gap-8">
+                <!-- Name -->
+                <div class="w-full">
+                    <label for="name" class="sr-only">Name</label>
+                    <input
+                        id="name"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Name *"
+                        class="w-full rounded-full bg-[#9FB0CE] bg-opacity-80 text-[#000235] placeholder-white/90 px-6 py-3 outline-none
+                                focus:ring-2 focus:ring-white/60"
+                        [value]="form.value.name"
+                        (input)="onNameInput($event)"
+                        [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched"
+                    />
+                    @if (form.controls.name.invalid && form.controls.name.touched) {
+                        <p class="mt-1 text-sm text-red-300">Please enter your name (min 2 chars).</p>
+                    }
+                </div>
+
+                <!-- Email -->
+                <div class="w-full">
+                    <label for="email" class="sr-only">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder="Email *"
+                        class="w-full rounded-full bg-[#9FB0CE] bg-opacity-80 text-[#000235] placeholder-white/90 px-6 py-3 outline-none
+                                focus:ring-2 focus:ring-white/60"
+                        [value]="form.value.email"
+                        (input)="onEmailInput($event)"
+                        [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
+                    />
+                    @if (form.controls.email.invalid && form.controls.email.touched) {
+                        <p class="mt-1 text-sm text-red-300">Please enter a valid email.</p>
+                    }
+                </div>
+
+                <!-- Message -->
+                <div class="w-full">
+                    <label for="message" class="sr-only">Message</label>
+                    <textarea
+                        id="message"
+                        rows="6"
+                        placeholder="Type your message here"
+                        class="w-full rounded-[28px] bg-[#9FB0CE] bg-opacity-80 text-[#000235] placeholder-white/90 px-6 py-4 outline-none
+                                focus:ring-2 focus:ring-white/60"
+                        [value]="form.value.message"
+                        (input)="onMessageInput($event)"
+                        [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"
+                    ></textarea>
+                    @if (form.controls.message.invalid && form.controls.message.touched) {
+                        <p class="mt-1 text-sm text-red-300">Message must be at least 10 characters.</p>
+                    }
+                </div>
+
+                <!-- Submit -->
+                <div class="pt-4">
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-full border border-white/40 w-52 px-8 py-3 font-semibold
+                                text-white hover:bg-white hover:text-[#000235] transition
+                                disabled:opacity-60 disabled:cursor-not-allowed"
+                        [disabled]="sending() || form.invalid"
+                        [attr.aria-busy]="sending()"
+                    >
+                        @if (!sending()) { SUBMIT } @else { Sending… }
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Group circles -->
+    <img class="absolute bottom-8 left-8" width="122" height="105" ngSrc="assets/images/group-elipse-3.png" priority="1" alt="Group Elipse 3" />
+</section>
