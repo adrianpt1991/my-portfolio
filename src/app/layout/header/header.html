@@ -37,11 +37,12 @@
     @if (menuOpen()) {
         <div class="md:hidden px-4 pb-4">
             <nav class="flex flex-col space-y-2 text-sm text-[#9FB0CE] font-medium">
-                <a href="#about" (click)="menuOpen.set(false)">#about me</a>
-                <a href="#services" (click)="menuOpen.set(false)">#services</a>
-                <a href="#education" (click)="menuOpen.set(false)">#education/experience</a>
-                <a href="#projects" (click)="menuOpen.set(false)">#projects</a>
-                <a href="#contact" class="mt-2 bg-[#9FB0CE] text-white px-4 py-1 rounded-full text-sm font-semibold" (click)="menuOpen.set(false)">
+                <a href="#home" (click)="menuOpen.set(false)" [ngClass]="{'text-[#000235]' : isActive('home')}">#home</a>
+                <a href="#about" (click)="menuOpen.set(false)" [ngClass]="{'text-[#000235]' : isActive('about')}">#about-me</a>
+                <a href="#services" (click)="menuOpen.set(false)" [ngClass]="{'text-[#000235]' : isActive('services')}">#services</a>
+                <a href="#experience" (click)="menuOpen.set(false)" [ngClass]="{'text-[#000235]' : isActive('experience')}">#experience</a>
+                <a href="#projects" (click)="menuOpen.set(false)" [ngClass]="{'text-[#000235]' : isActive('projects')}">#projects</a>
+                <a href="#contact" class="mt-2 bg-[#9FB0CE] text-white text-center w-36 px-4 py-1 rounded-full text-sm font-semibold" (click)="menuOpen.set(false)">
                     CONTACT ME
                 </a>
             </nav>
