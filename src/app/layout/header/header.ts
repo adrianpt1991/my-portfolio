@@ -36,7 +36,7 @@ export class Header {
             }
           },
           {
-            threshold: [0.6],     // ~60% visible to activate
+            threshold: [0.55],     // ~55% visible to activate
             rootMargin: '-64px 0px 0px 0px', // account for fixed header height
           }
         );
