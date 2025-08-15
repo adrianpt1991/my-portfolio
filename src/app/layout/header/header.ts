@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { afterNextRender, Component, DestroyRef, inject, signal } from '@angular/core';
+import { afterEveryRender, Component, DestroyRef, inject, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,45 +12,46 @@ export class Header {
   activeSection = signal<'home'|'about'|'services'|'experience'|'projects'>('home');
 
   private destroyRef = inject(DestroyRef);
+  private obs?: IntersectionObserver;
+  private observed = new Set<Element>(); // avoid double-observing
 
   constructor() {
-    // Run once after the app has rendered so all sections exist in the DOM.
-    afterNextRender({
-      // Mixed is fine here (we're neither forcing sync reads/writes in a loop)
-      mixedReadWrite: () => {
-        const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
-        if (!sections.length) return;
-
-        const obs = new IntersectionObserver(
-          entries => {
-            // Pick the most visible section among intersecting ones
-            let topCandidate: IntersectionObserverEntry | undefined;
+    // Runs after *every* render; perfect for picking up @defer’ed content as it appears.
+    afterEveryRender(() => {
+      // Lazily create the observer once
+      if (!this.obs) {
+        this.obs = new IntersectionObserver(
+          (entries) => {
+            let top: IntersectionObserverEntry | undefined;
             for (const e of entries) {
               if (!e.isIntersecting) continue;
-              if (!topCandidate || e.intersectionRatio > topCandidate.intersectionRatio) {
-                topCandidate = e;
-              }
+              if (!top || e.intersectionRatio > top.intersectionRatio) top = e;
             }
-            if (topCandidate) {
-              this.activeSection.set(topCandidate.target.id as typeof this.activeSection extends infer T ? never : never);
-            }
+            if (top) this.activeSection.set(top.target.id as any);
           },
           {
-            threshold: [0.55],     // ~55% visible to activate
-            rootMargin: '-64px 0px 0px 0px', // account for fixed header height
+            threshold: [0.45],                 // 45% of the section visible
+            rootMargin: '-64px 0px 0px 0px',  
           }
         );
 
-        sections.forEach(s => obs.observe(s));
+        this.destroyRef.onDestroy(() => this.obs?.disconnect());
+      }
 
-        // initial highlight from URL hash (if any)
-        if (location.hash) {
-          const id = location.hash.replace('#','') as any;
-          this.activeSection.set(id);
+      // Find any *new* sections that just got rendered by @defer
+      const sections = document.querySelectorAll<HTMLElement>('section[id]');
+      sections.forEach((s) => {
+        if (!this.observed.has(s)) {
+          this.obs!.observe(s);
+          this.observed.add(s);
         }
+      });
 
-        // cleanup on destroy
-        this.destroyRef.onDestroy(() => obs.disconnect());
+      // Honor current hash once, when sections exist
+      if (location.hash) {
+        const id = location.hash.slice(1);
+        const el = document.getElementById(id);
+        if (el) this.activeSection.set(id as any);
       }
     });
   }
