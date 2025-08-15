@@ -2,18 +2,21 @@
 <app-header />
 <!-- hero section-->
 <app-hero />
-<!-- about section -->
-<app-about />
-<!-- services section -->
-<app-services />
-<!-- experience section -->
-<app-experience />
-<!-- projects section -->
-<app-projects />
-<!-- contact section -->
-<app-contact />
-
-<!-- footer -->
-<app-footer />
-
+@defer (on viewport) {
+    <!-- about section -->
+    <app-about />
+    <!-- services section -->
+    <app-services />
+    <!-- experience section -->
+    <app-experience />
+    <!-- projects section -->
+    <app-projects />
+    <!-- contact section -->
+    <app-contact />
+    <!-- footer -->
+    <app-footer />
+}@placeholder {
+  <!-- Minimal DOM, no heavy JS -->
+  <div class="h-[400px] bg-gray-100 animate-pulse rounded-xl"></div>
+}
 <router-outlet />
