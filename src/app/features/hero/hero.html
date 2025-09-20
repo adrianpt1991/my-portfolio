@@ -2,24 +2,14 @@
     <!-- Group circles -->
     <img class="absolute top-24 left-8" width="122" height="105" ngSrc="assets/images/group-elipse.webp" priority="1" alt="Group Elipse" />
     <!-- Profile Image -->
-    <!-- <img
-        src="assets/images/profile-640.webp" 
-        srcset="
-            assets/images/profile-320.webp 320w,
-            assets/images/profile-480.webp 480w,
-            assets/images/profile-640.webp 640w,
-            assets/images/profile-768.webp 768w,
-            assets/images/profile-960.webp 960w
-        "
-        sizes="(max-width: 768px) 90vw, 40vw"
-        width="640" height="720"          
-        decoding="async"
-        fetchpriority="high"
-        class="w-full max-w-[640px] h-auto absolute bottom-0.5 right-0 z-10"
-    /> -->
-    <img class="absolute bottom-0.5 right-0 w-3xl z-10" width="727" height="748" ngSrc="assets/images/profile.webp" priority="high" alt="Profile Photo" />
+    <img class="hidden absolute md:block bottom-0.5 right-0 w-3xl z-10" width="727" height="748" ngSrc="assets/images/profile.webp" priority="high" alt="Profile Photo" />
     <!-- Ellipse Background -->
-    <img class="absolute bottom-0 right-0 w-3xl" width="860" height="603" ngSrc="assets/images/ellipse.webp" priority="1" alt="Ellipse shade" />
+    <img class="hidden absolute md:block bottom-0 right-0 w-3xl" width="860" height="603" ngSrc="assets/images/ellipse.webp" priority="1" alt="Ellipse shade" />
+    
+    <!--Mobile images-->
+    <img class="absolute block md:hidden bottom-0.5 right-0 w-80 z-10" width="320" height="310" ngSrc="assets/images/profile.webp" priority="high" alt="Profile Photo" />
+    <img class="absolute block md:hidden bottom-0 right-0 w-80" width="320" height="224" ngSrc="assets/images/ellipse.webp" priority="1" alt="Ellipse shade" />
+
     <!-- Text Content -->
     <div class="w-full h-full container mx-auto">
         <div class="flex flex-col justify-start mt-40 lg:justify-center lg:mt-0 text-left w-full lg:w-1/2 h-full gap-4">
